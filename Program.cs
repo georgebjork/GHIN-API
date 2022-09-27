@@ -34,7 +34,6 @@ Uri loginUrl = new Uri("https://api2.ghin.com/api/v1/golfer_login.json");
 
 //Create a payload
 var payload = "{\"user\":{\"email_or_ghin\":" + cred.ghinNum + ",\"password\":\"" + cred.password + "\",\"remember_me\":\"true\"},\"token\":\"nonblank\"}";
-Console.Write(payload);
 HttpContent content = new StringContent(payload, Encoding.UTF8, "application/json");
 
 //Run POST to get Auth Token
