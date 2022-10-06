@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using var client = new HttpClient();
 
+
+//This will parse out the webToken from the login request
 string getBetween(string strSource, string strStart, string strEnd)
 {
     if (strSource.Contains(strStart) && strSource.Contains(strEnd))
@@ -23,33 +25,8 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
-//This is where we will set the credentials
-// Credentials cred = new Credentials {
-//     //Enter your ghin number
-//     ghinNum = 1630444,
-//     //Enter your ghin password
-//     password = "PlTVw4pY8bVihOT9o$O8"
-// };
-
-
-
 //URL
 Uri loginUrl = new Uri("https://api2.ghin.com/api/v1/golfer_login.json");
-
-
-
-
-
-
-
-
-
-
-    // //Add the bearer token
-    // client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", cred.golfer_user_token);
-
-
-
 
 //This is post request to give get a token to use to access data. It will take in the users creds and then return a token to use. The user is then "logged in"
 app.MapPost("/api/login", async (Credentials cred) => {
@@ -88,7 +65,7 @@ app.MapGet("/api/{ghinNum}", async (int ghinNum, [FromBody] Token token) => {
 app.Run();
 
 
-
+//This iwll store our credientials
 class Credentials
 {
     public int ghinNum {get; set;}
@@ -96,6 +73,7 @@ class Credentials
 
 }; 
 
+//This will store our token
 class Token
 {
     public string? webToken {get; set;}
