@@ -1,4 +1,4 @@
-# GhinApi #
+# ghin-api #
 
 This is an API that will allow users to pull data from GHIN using their login credentials. 
 
