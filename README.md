@@ -1,6 +1,11 @@
 # ghin-api #
 
-NOTE: The intention of this project is not to take advantage of GHIN and their product. It is merely as fun side project I wanted to make and to try .NET Minimal APIs. This project will not be hosted live anywhere. For larger scale projects, please reach out to GHIN for access to their API. The intention of this is to be used for small side projects for golfers to use to track stats and whatnot and what to see their offical GHIN handicap. Thank you. 
+## NOTE ##
+
+The intention of this project is not to take advantage of GHIN and their product. It is merely as fun side project I wanted to make and to try .NET Minimal APIs. This project will not be hosted live anywhere. For larger scale projects, please reach out to GHIN for access to their API. The intention of this is to be used for small side projects for golfers to use to track stats and whatnot and what to see their offical GHIN handicap. Thank you. 
+
+
+## What this is and how it came to be ##
 
 This is an API that will allow users to pull data from GHIN using their login credentials. 
 
