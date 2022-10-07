@@ -52,14 +52,22 @@ app.MapPost("/api/login", async (Credentials cred) => {
 
 //This will be the get request for the ghin number
 app.MapGet("/api/{ghinNum}", async (int ghinNum, [FromBody] Token token) => {
-
     //Add the bearer token
     client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.webToken);
 
     //Get request with the url
     var res = Task.Run(() => client.GetAsync("https://api.ghin.com/api/v1/golfers/search.json?per_page=1&page=1&golfer_id=" + ghinNum));
     return await res.Result.Content.ReadAsStringAsync();
+});
 
+//This will return all of the players recent scores
+app.MapGet("api/{ghinNum}/recentScores", async (int ghinNum, [FromBody] Token token) => {
+    //Add the bearer token
+    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.webToken);
+
+    //Get request with the url
+    var res = Task.Run(() => client.GetAsync("https://api2.ghin.com/api/v1/golfers/" + ghinNum + "/scores.json?source=GHINcom" + ghinNum));
+    return await res.Result.Content.ReadAsStringAsync();
 });
 
 app.Run();
